@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-primary btn-xs btn-info" (onclick)="loadSubscriptions()">
+        <span class="glyphicon glyphicon-refresh"></span>
+      </button>
+  </div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <th>Chave</th>
+        <th>Device Model</th>
+        <th>Device Type</th>
+        <th>OS Version</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sub of subscriptions" >
+          <td>sub.username</td>
+          <td>sub.deviceModel</td>
+          <td>sub.deviceType</td>
+          <td>sub.deviceOSVersion</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
