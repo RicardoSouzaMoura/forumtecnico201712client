@@ -20,7 +20,11 @@ export class ListSubscriptionComponent implements OnInit {
   }
 
   loadSubscriptions(){
-    this.subscriptions = this.subscriptionService.getSubscriptions();
+    this.subscriptionService.getSubscriptions()
+      .subscribe(subscriptions => {this.subscriptions = subscriptions;
+        console.log(this.subscriptions);
+      });
+      
   }
 
 }

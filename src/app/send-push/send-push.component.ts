@@ -1,21 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { SubscriptionService } from '../subscription.service';
+import { PushService } from '../push.service';
+
 
 @Component({
   selector: 'app-send-push',
   templateUrl: './send-push.component.html',
   styleUrls: ['./send-push.component.css'],
-  providers: [SubscriptionService]
+  providers: [PushService]
 })
 export class SendPushComponent implements OnInit {
 
-  constructor(private subscriptionService: SubscriptionService) { }
+  constructor(private pushService: PushService) { }
+  
+  pushMessage : string;
 
   ngOnInit() {
+    this.pushMessage = "";
   }
 
   onSendPushes(){
-    this.subscriptionService.sendPushes();
+    this.pushService.sendPushes(this.pushMessage);
   }
 
 }
