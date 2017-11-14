@@ -9,24 +9,25 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class PushService {
 
+  private pushUrl : string;
+  private headers: HttpHeaders;
+  private body : Object;
+
   constructor(private http: HttpClient) {
     const user = "smpPush";
     const password = "push2smp!"; 
     const base64 = btoa (`${user}:${password}`);
     const authToken = `Basic ${base64}`;
     console.log (authToken);
+    this.pushUrl =  '/smp/push/application/br.com.petrobras.forumtecnico201712';
     this.headers = this.createHttpHeaders(authToken);
   }
-  
-  private pushUrl = '/smp/push/application/br.com.petrobras.forumtecnico201712';
-  private headers: HttpHeaders;
-  private body : {};
 
   sendPushes( message ){
     this.body = {
       "alert" : message,
       "data" : new Date().toDateString()
-    }
+    };
     this.http.post(this.pushUrl, this.body, {
       headers : this.headers
     }).subscribe();
