@@ -12,8 +12,8 @@ const PROXY_CONFIG = [
         "pathRewrite": {
             "^/smp/push": "/restnotification"
         },
-        "changeOrigin" : true
-        
+        "changeOrigin" : true,
+        "logLevel": "debug"
     }
 ];
 

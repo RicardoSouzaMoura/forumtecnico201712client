@@ -18,7 +18,7 @@ export class PushService {
     this.headers = this.createHttpHeaders(authToken);
   }
   
-  private pushUrl = '/smp/push/br.com.petrobras.forumtecnico201712';
+  private pushUrl = '/smp/push/application/br.com.petrobras.forumtecnico201712';
   private headers: HttpHeaders;
   private body : {};
 
