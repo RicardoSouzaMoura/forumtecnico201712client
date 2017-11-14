@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SendPushComponent } from './send-push/send-push.component';
 import { ListSubscriptionComponent } from './list-subscription/list-subscription.component';
+import {ToastyModule} from 'ng2-toasty';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ListSubscriptionComponent } from './list-subscription/list-subscription
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule                                                                                                                                                                                    
+    FormsModule,
+    ToastyModule.forRoot()                                                                                                                                                                                    
   ],
   providers: [],
   bootstrap: [AppComponent]
