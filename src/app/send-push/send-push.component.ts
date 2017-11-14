@@ -19,7 +19,11 @@ export class SendPushComponent implements OnInit {
   }
 
   onSendPushes(){
-    this.pushService.sendPushes(this.pushMessage);
+    this.pushService.sendPushes(this.pushMessage)
+          .subscribe(
+            ()=>{console.log("Sucesso")},
+            (error)=>{console.log(`erro: ${error}`)}
+          );
   }
 
 }

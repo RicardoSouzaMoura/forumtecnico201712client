@@ -18,19 +18,18 @@ export class PushService {
     const password = "push2smp!"; 
     const base64 = btoa (`${user}:${password}`);
     const authToken = `Basic ${base64}`;
-    console.log (authToken);
     this.pushUrl =  '/smp/push/application/br.com.petrobras.forumtecnico201712';
     this.headers = this.createHttpHeaders(authToken);
   }
 
-  sendPushes( message ){
+  sendPushes( message ): Observable<Object>{
     this.body = {
       "alert" : message,
       "data" : new Date().toDateString()
     };
-    this.http.post(this.pushUrl, this.body, {
+    return this.http.post(this.pushUrl, this.body, {
       headers : this.headers
-    }).subscribe();
+    });
   }
   
   createHttpHeaders(authToken): HttpHeaders {
