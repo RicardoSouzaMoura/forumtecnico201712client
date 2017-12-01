@@ -31,7 +31,7 @@ export class SendPushComponent implements OnInit {
               this.addSuccessToast();
           },
             (error) => {
-              console.log(`erro: ${error}`);
+              console.log(`erro: ${JSON.stringify(error)}`);
               this.addErrorToast();
           });
   }

@@ -18,7 +18,7 @@ export class PushService {
     const password = "push2smp!"; 
     const base64 = btoa (`${user}:${password}`);
     const authToken = `Basic ${base64}`;
-    this.pushUrl =  '/smp/push/application/br.com.petrobras.forumtecnico201712';
+    this.pushUrl =  '/api/message';
     this.headers = this.createHttpHeaders(authToken);
   }
 
@@ -27,9 +27,9 @@ export class PushService {
       "alert" : message,
       "data" : new Date().toDateString()
     };
-    return this.http.post(this.pushUrl, this.body, {
+    return this.http.post(this.pushUrl, this.body/*, {
       headers : this.headers
-    });
+    }*/);
   }
   
   createHttpHeaders(authToken): HttpHeaders {
